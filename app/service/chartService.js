@@ -24,7 +24,7 @@ function chartService() {
   function setChartsLoaded() {
     var i = 0;
     var intervalId = setInterval(function(){
-      if (TAX_CALC_GLOBALS.hasGoogleChartsLoaded) {
+      if (window.TAX_CALC_GLOBALS && TAX_CALC_GLOBALS.hasGoogleChartsLoaded) {
         chartsLoaded = true;
         clearInterval(intervalId);
         execLoadCallbacks();
