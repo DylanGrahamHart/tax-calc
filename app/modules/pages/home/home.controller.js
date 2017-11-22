@@ -2,7 +2,7 @@ module.exports = home;
 
 ////
 
-function home() {
+function home(chartService) {
   var home = this;
 
   init();
@@ -10,7 +10,7 @@ function home() {
   ////////
 
   function init() {
-    
+    chartService.drawChart();
   }
 
 };
