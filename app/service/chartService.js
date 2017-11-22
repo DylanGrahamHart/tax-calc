@@ -44,9 +44,11 @@ function chartService() {
     loadCallbacks = [];
   }
 
-  function drawChart() {
+  function drawChart(params) {
     if (!chartsLoaded) {
-      loadCallbacks.push(drawChart);
+      loadCallbacks.push(function(){
+        drawChart(params);
+      });
     } else {
       var data = google.visualization.arrayToDataTable(getChartData());
 
@@ -83,9 +85,6 @@ function chartService() {
 
       taxesPaid += margRate;
       effRate = taxesPaid / income * 100;
-
-      console.log('taxesPaid: ' + taxesPaid);
-      console.log('effRate: ' + effRate);
 
       chartData.push([income, effRate, margRate]);
     }

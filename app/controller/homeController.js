@@ -14,7 +14,7 @@ function homeController(chartService) {
   ////////
 
   function init() {
-    drawChart();
+
   }
 
   function drawChart() {

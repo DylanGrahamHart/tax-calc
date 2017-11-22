@@ -11,8 +11,17 @@
 </head>
 
 <body ng-cloak>
-  <ui-view></ui-view>
-  <load-google-charts></load-google-charts>
+  <div ui-view></div>
+
+  <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+  <script type="text/javascript">
+    window.TAX_CALC_GLOBALS = {};
+    google.charts.load('current', {packages: ['corechart']});
+
+    google.charts.setOnLoadCallback(function(){
+      window.TAX_CALC_GLOBALS.hasGoogleChartsLoaded = true;
+    });
+  </script>
 
   <script src="app.js"></script>
 </body>

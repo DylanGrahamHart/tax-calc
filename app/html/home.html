@@ -1,12 +1,15 @@
-<div id="home">
+<div id="page">
+  <div page-header></div>
 
-	<h1>Home</h1>
+  <div id="body">
+    <div class="container">
+      <div id="controls">
+        <!-- <button ng-click="home.addTaxBracket()">Add Tax Bracket</button> -->
 
-  <div id="controls">
-    <!-- <button ng-click="home.addTaxBracket()">Add Tax Bracket</button> -->
-    <button ng-click="home.drawChart()">Draw Chart</button>
+        <button ng-click="home.drawChart()">Draw Chart</button>
+      </div>
+
+      <div id="chart"></div>
+    </div>
   </div>
-
-  <div id="chart"></div>
-
 </div>

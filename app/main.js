@@ -8,9 +8,8 @@ var app = ng.module('taxCalc', [uiRouter]);
 app.config(require('./route/defaultRoute'));
 app.config(require('./route/homeRoute'));
 
+app.directive('pageHeader', require('./directive/pageHeaderDirective'));
+
 app.factory('chartService', require('./service/chartService'));
-
 app.directive('home', require('./directive/homeDirective'));
-app.directive('loadGoogleCharts', require('./directive/loadGoogleChartsDirective'));
-
 app.controller('homeController', require('./controller/homeController'));
