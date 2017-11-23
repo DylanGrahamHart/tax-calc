@@ -1,0 +1,109 @@
+/**
+ * Elements
+ */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1;
+  color: #333;
+}
+
+/**
+ * Layout
+ */
+.clr {
+  clear: both;
+}
+.clrf:after {
+  content: '';
+  display: block;
+  clear: both;
+}
+.grid {
+  width: 100%;
+  max-width: 1040px;
+  padding: 0 20px;
+  margin: 0 auto;
+}
+.dib {
+  display: inline-block;;
+}
+.fr {
+  float: right;
+}
+.fl {
+  float: left;
+}
+
+/**
+ * Margin & Padding
+ */
+@for $i from 1 through 20 {
+  $pixelValue: $i * 5;
+
+  .mg-#{$pixelValue} {
+    margin: $pixelValue + px;
+  }
+  .mgt-#{$pixelValue} {
+    margin-top: $pixelValue + px;
+  }
+  .mgb-#{$pixelValue} {
+    margin-bottom: $pixelValue + px;
+  }
+  .mgl-#{$pixelValue} {
+    margin-left: $pixelValue + px;
+  }
+  .mgr-#{$pixelValue} {
+    margin-right: $pixelValue + px;
+  }
+
+  .pd-#{$pixelValue} {
+    padding: $pixelValue + px;
+  }
+  .pdt-#{$pixelValue} {
+    padding-top: $pixelValue + px;
+  }
+  .pdb-#{$pixelValue} {
+    padding-bottom: $pixelValue + px;
+  }
+  .pdl-#{$pixelValue} {
+    padding-left: $pixelValue + px;
+  }
+  .pdr-#{$pixelValue} {
+    padding-right: $pixelValue + px;
+  }
+}
+
+/**
+ * Font size
+ */
+@for $i from 4 through 24 {
+  $fontSize: $i * 2;
+
+  .fs-#{$fontSize} {
+    font-size: $fontSize + px;
+  }
+}
+
+/**
+ * Components
+ */
+.btn {
+  border: none;
+  background: #00f;
+  border-radius: 10px;
+  display: inline-block;
+  padding: 10px 20px;
+  font-size: 16px;
+  color: #fff;
+}
+.btn-red {
+  background: #f00;
+}
+.btn-green {
+  background: #090;
+}

@@ -37,8 +37,8 @@ function chartService() {
   }
 
   function execLoadCallbacks() {
-    loadCallbacks.forEach(function(callbacks){
-      callbacks();
+    loadCallbacks.forEach(function(callback){
+      callback();
     });
 
     loadCallbacks = [];
@@ -50,10 +50,10 @@ function chartService() {
         drawChart(params);
       });
     } else {
-      var data = google.visualization.arrayToDataTable(getChartData());
+      var data = google.visualization.arrayToDataTable(getChartData(params));
 
       var options = {
-        title: 'Effective and Marginal Tax Rate',
+        title: 'Effective Tax Rate By Income',
         curveType: 'function',
         legend: { position: 'bottom' }
       };
@@ -63,30 +63,31 @@ function chartService() {
     }
   }
 
-  function getChartData() {
+  function getChartData(params) {
     var chartData = [];
+
     var xAxis = 'Income';
     var yAxisOne = 'Effective Rate';
-    var yAxisTwo = 'Marginal Rate';
-
-    chartData.push([xAxis, yAxisOne, yAxisTwo]);
+    chartData.push([xAxis, yAxisOne]);
 
     var taxesPaid = 0;
     var income = 0;
 
-    for (var income = 1; income <= 100000; income++) {
-      income += 100;
+    while (income <= params.income) {
       var effRate = 0;
       var margRate = 0;
 
-      if (income > 10000) {
-        margRate = 10;
-      }
+      params.taxBrackets.forEach(function(bracket, i){
+        if (income > bracket.cutOff) {
+          margRate = bracket.rate
+        }
+      })
 
-      taxesPaid += margRate;
-      effRate = taxesPaid / income * 100;
+      taxesPaid += parseInt(margRate);
+      effRate = income === 0 ? 0 : taxesPaid / income * 100;
 
-      chartData.push([income, effRate, margRate]);
+      chartData.push([income, effRate]);
+      income += 100;
     }
 
     return chartData;

@@ -1,15 +1,35 @@
-<div id="page">
+<div id="page-home">
   <div page-header></div>
 
-  <div id="body">
-    <div class="container">
-      <div id="controls">
-        <!-- <button ng-click="home.addTaxBracket()">Add Tax Bracket</button> -->
+  <form class="grid" ng-submit="home.drawChart()">
+    <div class="mgb-40">
+      <button type="button" class="btn btn-green" class="mgr-20" ng-click="home.addTaxBracket()">Add Tax Bracket</button>
+      <button type="button" class="btn btn-red" ng-click="home.taxBrackets.pop()">Remove Bracket</button>
 
-        <button ng-click="home.drawChart()">Draw Chart</button>
+      <button type="submit" class="btn fr">Draw Chart</button>
+    </div>
+
+    <div class="mgb-40">
+      <label>Income</label>
+      <input type="text" class="form-control" ng-model="home.income">
+    </div>
+
+    <div class="clrf pdb-10" ng-repeat="taxBracket in home.taxBrackets">
+      <div class="dib mgb-20 mgr-20">
+        <label>Tax Rate %</label>
+        <input type="text" class="form-control" ng-model="home.taxBrackets[$index].rate">
       </div>
 
-      <div id="chart"></div>
+      <div class="dib mgb-20 mgr-20">
+        <label>Bracket Cut Off</label>
+        <input type="text" class="form-control" ng-model="home.taxBrackets[$index].cutOff">
+      </div>
+
+      <div class="dib mgb-20">
+      </div>
     </div>
-  </div>
+
+    <div id="chart" style="margin-top: -10px"></div>
+  </form>
+
 </div>

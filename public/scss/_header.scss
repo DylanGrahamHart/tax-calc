@@ -1,0 +1,22 @@
+/**
+ * Header
+ */
+#header {
+  background: #333;
+  box-shadow: 0 0 10px #000;
+  margin-bottom: 20px;
+
+  a {
+    font-size: 36px;
+    font-weight: bold;
+    color: #fff;
+    display: inline-block;
+    padding: 10px;
+    margin-left: -10px;
+    text-decoration: none;
+
+    &:hover {
+      text-decoration: none;
+    }
+  }
+}

@@ -4,7 +4,8 @@ module.exports = {
   watch: true,
   context: path.resolve('app'),
   entry: './main.js',
-  devtool: 'source-map',
+  // devtool: 'source-map',
+  devtool: 'inline-source-map',
 
   output: {
     path: path.resolve('public'),
