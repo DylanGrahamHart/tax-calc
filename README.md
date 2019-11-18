@@ -1,3 +1,3 @@
 # tax-calc
 
-http://www.dylanhart.net/app/projects/tax-calc/
+http://dylanhart.net/projects/tax-calc/
